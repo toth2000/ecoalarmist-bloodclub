@@ -1,0 +1,19 @@
+.navlinks__full-div{
+    text-decoration: none;
+    box-sizing: border-box;
+    min-width: 4.5rem;
+    height: 100%;
+    border-bottom: 5px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0 15px;
+}
+
+.navbar__navlinks__text{
+    color: white;
+    /* font-family: 'Roboto'; */
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
