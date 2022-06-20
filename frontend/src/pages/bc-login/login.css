@@ -1,0 +1,67 @@
+.bc-login-fulldiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5rem;
+    box-sizing: border-box;
+}
+.bc-login-leftdiv{
+    flex: 1;
+    text-transform: capitalize;
+    font-size: 3rem;
+    color: #FC4F4F;
+    font-weight: 600;
+    font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.bc-login-rightdiv{
+    height: 35rem;
+    max-height: 100%;
+    width: 25rem;
+    max-width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+.login-card{
+    background: #FD5D5D;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:5rem 2rem;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.login-auth{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-auth{
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: #cacaca;
+    box-shadow: 2px 2px 5px #b84141;
+}
+.btn-otp{
+    font-size: 1rem;
+    color: #444;
+    padding: 4px 5px;
+}
+.btn-auth:hover{
+    box-shadow: none;
+}
+@media only screen and (max-width: 600px) {
+    .bc-login-fulldiv{
+        padding: 0;
+        padding-top: 5rem;
+    }
+    .bc-login-leftdiv{
+        display: none;
+    }
+    .bc-login-rightdiv{
+        
+    }
+  }
