@@ -27,17 +27,44 @@
 .login-card{
     background: #FD5D5D;
     height: 100%;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding:5rem 2rem;
+    padding:5rem 1rem;
     justify-content: space-between;
     box-sizing: border-box;
+    position: relative;
+}
+.login-card::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #ff8a8a;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: translate(15px,15px);
+}
+.card-header{
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 2px;
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+    
 }
 .login-auth{
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.input-phone{
+    max-width: 90%;
 }
 .btn-auth{
     font-size: 2rem;
@@ -52,6 +79,19 @@
 }
 .btn-auth:hover{
     box-shadow: none;
+}
+.goto-signup,.link-signup{
+    color: #fff;
+    font-size: .8rem;
+    text-transform: capitalize;
+}
+.goto-signup span{
+    margin-right:5px ;
+    
+}
+.link-signup{
+    font-weight: 700;
+    text-decoration: none;
 }
 @media only screen and (max-width: 600px) {
     .bc-login-fulldiv{

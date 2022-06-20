@@ -24,7 +24,7 @@ const Optfield=props=>
     return(
         <div className="opt-fulldiv">
             <input id="code1" autoFocus={true} type="text" name="code1" maxLength="1" onKeyUp={handleKeyDown} />
-            <input id="code2" type="text" name="code2" maxLength="1" onKeyUp={handleKeyDown} />
+            <input id="code2" autoSave="false" type="text" name="code2" maxLength="1" onKeyUp={handleKeyDown} />
             <input id="code3" type="text" name="code3" maxLength="1" onKeyUp={handleKeyDown} />
             <input id="code4" type="text" name="code4" maxLength="1" onKeyUp={handleKeyDown} />
             <input id="code5" type="text" name="code5" maxLength="1" onKeyUp={handleKeyDown} />

@@ -1,11 +1,10 @@
 import React from 'react'
 
-const Input=({name,placeholder})=> {
+import './input.css'
+const Input1=({name,placeholder,className})=> {
   return (
-    <div>
-        <input title={name} placeholder={placeholder} type="text" name={name} id="" />
-    </div>
+    <input title={name} className={`input1 ${className}`} placeholder={placeholder} type="text" name={name} id="" />
   )
 }
 
-export default Input
+export default Input1

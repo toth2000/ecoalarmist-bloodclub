@@ -22,16 +22,16 @@ const Login=()=> {
         </div>
         <div className="bc-login-rightdiv">
             <div className="login-card">
-                Login
+                <h1 className='card-header'>Login</h1>
                 <div className="login-auth">
-                    {status===STATUS.INITIAL&&<Input />}
+                    {status===STATUS.INITIAL&&<Input className={'input-phone'} placeholder={'Enter phone Number'}/>}
                     {status===STATUS.OTPSENT&&<Optfield />}
                     {status===STATUS.INITIAL&&<Button className={'btn-auth btn-otp'} onClick={()=>setStatus(STATUS.OTPSENT)}>{'Get otp'}</Button>}
                     {status===STATUS.OTPSENT&&<Button className={'btn-auth btn-back'} onClick={()=>setStatus(STATUS.INITIAL)}><BsArrowLeft/></Button>}
                 </div>
                 <div className="goto-signup">
-                    <span>Not a member of Blood Club</span>
-                    <Link to={'/bloodclub/register'} >Sign-up</Link>
+                    <span>Not a member of Blood Club?</span>
+                    <Link className='link-signup' to={'/bloodclub/register'} >Sign-up</Link>
                 </div>
             </div>
         </div>
