@@ -25,7 +25,7 @@
     box-sizing: border-box;
 }
 .login-card{
-    background: #FD5D5D;
+    background: #ED3237;
     height: 100%;
     border-radius: 5px;
     display: flex;
@@ -57,6 +57,12 @@
     font-family: 'Roboto Condensed', sans-serif;
     
 }
+.login-top{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;   
+}
 .login-auth{
     width: 100%;
     display: flex;
@@ -75,6 +81,7 @@
 .btn-otp{
     font-size: 1rem;
     color: #444;
+    font-size: 1.2rem;
     padding: 4px 5px;
 }
 .btn-auth:hover{
@@ -87,11 +94,30 @@
 }
 .goto-signup span{
     margin-right:5px ;
+    font-size: .7rem;
     
 }
 .link-signup{
     font-weight: 700;
     text-decoration: none;
+}
+.login-loader{
+    margin-top: 1rem;
+}
+.login-status-div{
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    height: 2rem;
+}
+.login-status-div span{
+    color: #fff;
+    font-family: 'Comfortaa', cursive;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-size: .8rem;
 }
 @media only screen and (max-width: 600px) {
     .bc-login-fulldiv{
