@@ -1,0 +1,27 @@
+.opt-fulldiv{
+    display: flex;
+}
+.opt-fulldiv input{
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    padding: 3px;
+    border: none;
+    font-size: 1.2rem;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px #e93c3c;
+}
+.opt-fulldiv input:focus{
+    outline: none;
+    box-shadow: 2px 2px 4px #9f2020;
+}
+.opt-fulldiv input::-webkit-inner-spin-button, 
+.opt-fulldiv input::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}

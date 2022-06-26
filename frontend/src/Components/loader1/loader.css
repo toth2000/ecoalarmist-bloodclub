@@ -1,0 +1,44 @@
+.loader-1-fulldiv{
+    display: flex;
+    position: relative;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-1-fulldiv bar{
+    position: relative;
+    height: 2rem;
+    width: 5px;
+    background-color: #fff;
+    margin: 0 3px;
+    border-radius: 10px;
+    animation: load 1s ease-in-out none infinite ;
+}
+.loader-1-fulldiv bar:nth-child(even){
+    height: 2rem;
+    animation-name: loadrev;
+}
+
+@keyframes load {
+    0%{
+        transform: scaleY(1);
+    }
+    50%{
+        transform: scaleY(.5);
+    }
+    100%{
+        transform: scaleY(1);
+    }
+}
+@keyframes loadrev {
+    0%{
+        transform: scaleY(.5);
+    }
+    50%{
+        transform: scaleY(1);
+    }
+    100%{
+        transform: scaleY(.5);
+    }
+}

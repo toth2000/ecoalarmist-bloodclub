@@ -1,0 +1,12 @@
+.button1-btn{
+    background-color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding:2px 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #444;
+}

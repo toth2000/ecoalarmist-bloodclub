@@ -5,7 +5,7 @@ import './IntroPage.css'
 const IntroPage = () => {
   return (
     <div className='intro-page__full-div'>
-      <Navbar/>
+      {/* <Navbar/> */}
     </div>
   )
 }
