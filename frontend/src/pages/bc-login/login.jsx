@@ -8,6 +8,8 @@ import {BsArrowLeft} from 'react-icons/bs';
 
 import './login.css';
 import Loader from '../../Components/loader1/loader';
+import Input2 from '../../Components/input2/input';
+
 const STATUS={
     INITIAL:"INITIAL",
     OTPSENT:"OTPSENT",
@@ -34,7 +36,7 @@ const Login=()=> {
             setStatus(STATUS.OTPSENT);
         }, 2000);
     }
-    const hanldeLogin=(str)=>{
+    const handleLogin=(str)=>{
         setLoading(true);
         setTimeout(() => {
             //fake async call
@@ -54,14 +56,20 @@ const Login=()=> {
                 <h1 className='card-header'>Login</h1>
                 <div className="login-top">
                     <div className="login-auth">
-                        {status===STATUS.INITIAL&&<Input className={'input-phone'} value={phone} onChange={v=>setPhone(v)} placeholder={'Enter phone Number'}/>}
-                        {status===STATUS.OTPSENT&&<Optfield onSubmit={hanldeLogin}/>}
-                        {status===STATUS.INITIAL && !loading&&<Button className={'btn-auth btn-otp'} onClick={handlePhoneSubmit}>{'Get otp'}</Button>}
-                        {status===STATUS.OTPSENT&& !loading&&<Button className={'btn-auth btn-back'} onClick={()=>setStatus(STATUS.INITIAL)}><BsArrowLeft/></Button>}
-                        {loading && <Loader className={'login-loader'}/>}
+                    {status===STATUS.INITIAL&&<div className="login-initialstatus-div">
+                        <span className='login-lebel'>Phone no.</span>
+                        <Input2 className={'input-phone'} value={phone} onChange={v=>setPhone(v)} placeholder={'Enter phone Number'}/>
+                        <Button className={'btn-auth btn-otp'} onClick={handlePhoneSubmit}>{'Get otp'}</Button>
+                    </div>}
+                    {status===STATUS.OTPSENT && <div className="login-otpstatus-div">
+                        <Optfield onSubmit={handleLogin}/>
+                        <a >resend OTP?</a>
+                        <Button className={'btn-auth btn-back'} onClick={()=>setStatus(STATUS.INITIAL)}><BsArrowLeft/></Button>
+                    </div>}
                     </div>
                     <div className='login-status-div'>
-                        {statusMessage &&<span>{statusMessage}</span>}
+                        {loading && <Loader className={'login-loader'}/>}
+                        {!loading && statusMessage &&<span>{statusMessage}</span>}
                     </div>
                 </div>
                 <div className="goto-signup">
