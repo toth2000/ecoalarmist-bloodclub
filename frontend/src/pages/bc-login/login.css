@@ -95,6 +95,16 @@
     align-items: center;
     width: 100%;
 }
+.login-phone-prefix{
+    display: flex;
+    align-items: center;
+}
+.login-phone-prefix span{
+    margin-right: 10px;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    color: #fff;
+}
 .login-otpstatus-div{
     display: flex;
     flex-direction: column;

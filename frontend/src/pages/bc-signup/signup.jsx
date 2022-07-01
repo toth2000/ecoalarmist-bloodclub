@@ -20,7 +20,7 @@ const STATUS={
     VERIFIED:"VERIFIED",
 }
 const Signup = () => {
-  const [status, setStatus] = useState(STATUS.VERIFIED);
+  const [status, setStatus] = useState(STATUS.INITIAL);
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null);
   const [phone, setPhone] = useState('');
@@ -71,7 +71,10 @@ const Signup = () => {
                     <div className="signup-auth">
                         {status===STATUS.INITIAL&&<div className="signup-initialstatus-div">
                           <span className='signup-lebel'>Phone no.</span>
-                          <Input2 value={phone} onChange={v=>setPhone(v)} placeholder={'Enter phone Number'}/>
+                          <div className="signup-phone-prefix">
+                            <span>+91</span>
+                            <Input2 value={phone} onChange={v=>setPhone(v)} placeholder={'Enter phone Number'}/>
+                          </div>
                           <Button className={'btn-auth btn-otp'} onClick={handlePhoneSubmit}>{'Get otp'}</Button>
                         </div>}
                         {status===STATUS.OTPSENT && <div className="signup-otpstatus-div">
@@ -86,7 +89,10 @@ const Signup = () => {
                             <span className='signup-lebel'>Email</span>
                             <Input2 placeholder={'Enter Your Email'}/>
                             <span className='signup-lebel'>Phone Number</span>
-                            <Input2 value={phone} disabled />
+                            <div className="signup-phone-prefix">
+                              <span>+91</span>
+                              <Input2 value={phone} disabled />
+                            </div>
                             <div className="slider-2-buttons">
                               <Button onClick={()=>setSlide(2)}>{'>'}</Button>
                             </div>

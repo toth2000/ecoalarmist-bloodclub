@@ -58,7 +58,10 @@ const Login=()=> {
                     <div className="login-auth">
                     {status===STATUS.INITIAL&&<div className="login-initialstatus-div">
                         <span className='login-lebel'>Phone no.</span>
-                        <Input2 className={'input-phone'} value={phone} onChange={v=>setPhone(v)} placeholder={'Enter phone Number'}/>
+                        <div className="login-phone-prefix">
+                            <span>+91</span>
+                            <Input2 className={'input-phone'} value={phone} onChange={v=>setPhone(v)} placeholder={'Enter phone Number'}/>
+                        </div>
                         <Button className={'btn-auth btn-otp'} onClick={handlePhoneSubmit}>{'Get otp'}</Button>
                     </div>}
                     {status===STATUS.OTPSENT && <div className="login-otpstatus-div">

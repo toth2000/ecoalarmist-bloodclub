@@ -95,6 +95,16 @@
     align-items: center;
     width: 100%;
 }
+.signup-phone-prefix{
+    display: flex;
+    align-items: center;
+}
+.signup-phone-prefix span{
+    letter-spacing: 1px;
+    margin-right: 10px;
+    font-size: 1rem;
+    color: #fff;
+}
 .signup-otpstatus-div{
     display: flex;
     flex-direction: column;
