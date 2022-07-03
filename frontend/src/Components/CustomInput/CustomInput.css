@@ -1,0 +1,52 @@
+.custom-input__wrapper-div{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    font-family: 'Roboto';
+    display: flex;
+    align-items: flex-end;
+}
+
+.custom-input__icon{
+    display: inline-flex;
+    font-size: 1.5rem;
+    color: #888888;
+    margin-right: 5px;
+    border: 1px solid #CCCCCC;
+    border-radius: 2px;
+    background-color: #CCCCCC;
+}
+
+.custom-input{
+    border: none;
+    outline: none;
+
+    width: 100%;
+    border-bottom: 2px solid grey;
+    padding-top: 1.2rem;
+    font-family: 'Roboto';
+    font-size: 1rem;
+    color: #888888;
+}
+
+.custom-input-placeholder{
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-10%);
+    pointer-events: none;
+    font-size: 0.9rem;
+    color: #CCCCCC;
+    transition: top 200ms ease-in-out, transform 200ms ease-in-out, font-size 200ms ease-in-out;
+}
+
+.custom-input:valid+.custom-input-placeholder, .custom-input:focus+.custom-input-placeholder{
+    top: -40%;
+    transform: translateY(50%);
+    font-size: 0.8rem;
+    color: #ED3237;
+}
+
+.custom-input:valid, .custom-input:focus{
+    border-bottom-color: #ED3237;
+}

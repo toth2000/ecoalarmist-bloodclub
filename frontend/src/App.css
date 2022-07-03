@@ -16,3 +16,10 @@
 /* .App {
   text-align: center;
 } */
+
+.underline{
+  height: 1px;
+  width: 100%;
+  background-color: #CCCCCC;
+  margin: 0 auto;
+}

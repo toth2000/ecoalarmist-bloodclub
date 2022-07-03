@@ -15,7 +15,7 @@ const Navbar = () => {
       <div style = {isDrawerOpen ? {maxHeight : '500px'} : {}} className='navbar-navlinks__drawer'>
           <NavLink className='navbar-mobile__navlinks' style = {({isActive}) => isActive ? {color : '#ED3237'} : {}} to = '/'>HOME</NavLink>
           <NavLink className='navbar-mobile__navlinks' style = {({isActive}) => isActive ? {color : '#ED3237'} : {}} to = '/bloodclub/login'>Blood Club</NavLink>
-          <NavLink className='navbar-mobile__navlinks' style = {({isActive}) => isActive ? {color : '#ED3237'} : {}} to = '/dummy'>DUMMY</NavLink>
+          <NavLink className='navbar-mobile__navlinks' style = {({isActive}) => isActive ? {color : '#ED3237'} : {}} to = '/patient/form'>Request Blood</NavLink>
       </div>
 
       <div onClick = {hamburgerButtonClickHandler} className='navbar-hamburger__button-div'>
@@ -34,8 +34,8 @@ const Navbar = () => {
         />
         <NavLinks
           className
-          link = '/dummy'
-          linkText='Dummy'
+          link = '/patient/form'
+          linkText='Request Blood'
         />
       </div>
     </div>
