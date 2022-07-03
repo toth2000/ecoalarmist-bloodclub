@@ -1,11 +1,11 @@
 .input2-fulldiv{
     background: transparent;
     border: none;
-    border-bottom: 1px solid #fff;
     padding:2px 5px;
     color: #fff;
     position: relative;
     width: calc(100% - 4rem);
+    border-bottom: 1px solid #fff;
 }
 .input2{
     background: transparent;
@@ -18,7 +18,7 @@
 .input2::placeholder{
     color: #fff;
     font-size: 1rem;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 .input2-background{
     content: '';
