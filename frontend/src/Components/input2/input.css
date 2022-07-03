@@ -1,0 +1,40 @@
+.input2-fulldiv{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    padding:2px 5px;
+    color: #fff;
+    position: relative;
+    width: calc(100% - 4rem);
+}
+.input2{
+    background: transparent;
+    color: inherit;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+.input2::placeholder{
+    color: #fff;
+    font-size: 1rem;
+    visibility: hidden;
+}
+.input2-background{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+    transition: transform 200ms ease-in-out;
+    background-color: #9f202064;
+    border: none;
+    border-bottom: 2px solid #cacaca;
+}
+
+.input2:focus{
+    outline: none;
+}

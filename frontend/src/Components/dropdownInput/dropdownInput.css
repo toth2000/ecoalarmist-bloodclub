@@ -1,0 +1,38 @@
+.dropdowninput-fulldiv{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    padding:2px 5px;
+    color: #fff;
+    position: relative;
+    width: calc(100% - 4rem);
+}
+.dropdowninput-fulldiv select{
+    background: transparent;
+    color: inherit;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+.dropdowninput-fulldiv select option{
+    color: #000;
+}
+.dropdowninput-background{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+    transition: transform 150ms ease-in-out;
+    background-color: #9f202064;
+    border: none;
+    border-bottom: 2px solid #cacaca;
+}
+.dropdowninput-fulldiv select:focus{
+    outline: none;
+    font-size: .9rem;
+}

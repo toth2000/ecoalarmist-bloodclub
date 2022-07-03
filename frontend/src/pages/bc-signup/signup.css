@@ -1,11 +1,11 @@
-.bc-login-fulldiv{
+.bc-signup-fulldiv{
     width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 5rem;
     box-sizing: border-box;
 }
-.bc-login-leftdiv{
+.bc-signup-leftdiv{
     flex: 1;
     text-transform: capitalize;
     font-size: 3rem;
@@ -16,7 +16,7 @@
     justify-content: flex-start;
     align-items: center;
 }
-.bc-login-rightdiv{
+.bc-signup-rightdiv{
     height: 35rem;
     max-height: 100%;
     width: 25rem;
@@ -24,7 +24,7 @@
     padding: 2rem;
     box-sizing: border-box;
 }
-.login-card{
+.signup-card{
     background: #ED3237;
     height: 100%;
     border-radius: 5px;
@@ -36,7 +36,7 @@
     box-sizing: border-box;
     position: relative;
 }
-.login-card::before{
+.signup-card::before{
     content: '';
     position: absolute;
     height: 100%;
@@ -57,7 +57,7 @@
     font-family: 'Roboto Condensed', sans-serif;
     
 }
-.login-top{
+.signup-top{
     width: 100%;
     height: 100%;
     display: flex;
@@ -66,7 +66,7 @@
     background-color: inherit;
     align-items: center;   
 }
-.login-auth{
+.signup-auth{
     align-self: stretch;
     width: 100%;
     height: 100%;
@@ -76,7 +76,7 @@
     background-color: inherit;
     justify-content: center;
 }
-.login-auth a{
+.signup-auth a{
     align-self: flex-end;
     color: #fff;
     margin: 0;
@@ -86,32 +86,32 @@
     text-decoration: none;
     cursor: pointer;
 }
-.login-auth a:hover{
+.signup-auth a:hover{
     color: #cacaca;
 }
-.login-initialstatus-div{
+.signup-initialstatus-div{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
-.login-phone-prefix{
+.signup-phone-prefix{
     display: flex;
     align-items: center;
 }
-.login-phone-prefix span{
-    margin-right: 10px;
+.signup-phone-prefix span{
     letter-spacing: 1px;
+    margin-right: 10px;
     font-size: 1rem;
     color: #fff;
 }
-.login-otpstatus-div{
+.signup-otpstatus-div{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .input-phone{
-    max-width: 90%;
+    width: 100%;
 }
 .btn-auth{
     font-size: 2rem;
@@ -128,12 +128,12 @@
 .btn-auth:hover{
     box-shadow: none;
 }
-.goto-signup,.link-signup{
+.goto-login,.link-signup{
     color: #fff;
     font-size: .8rem;
     text-transform: capitalize;
 }
-.goto-signup span{
+.goto-login span{
     margin-right:5px ;
     font-size: .7rem;
     
@@ -142,7 +142,7 @@
     font-weight: 700;
     text-decoration: none;
 }
-.login-status-div{
+.signup-status-div{
     align-self: stretch;
     display: flex;
     justify-content: center;
@@ -157,7 +157,27 @@
     letter-spacing: 1px;
     font-size: .8rem;
 }
-.login-lebel{
+.signup-slider{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: inherit;
+}
+.signup-slider-left,.signup-slider-right{
+    position: absolute;
+    background-color: inherit;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: inherit;
+}
+.signup-slider-right{
+    overflow-y: scroll;
+    
+}
+.signup-lebel{
     align-self: flex-start;
     margin-left: 2.2rem;
     font-size: .8rem;
@@ -166,15 +186,23 @@
     margin-top: 1rem;
     margin-bottom: 2px;
 }
+.slider-2-buttons{
+    display: flex;
+    align-self: flex-end;
+    margin: 1rem 2.2rem;
+}
+.signup-button{
+    margin-left: 10px;
+}
 @media only screen and (max-width: 600px) {
-    .bc-login-fulldiv{
+    .bc-signup-fulldiv{
         padding: 0;
         padding-top: 5rem;
     }
-    .bc-login-leftdiv{
+    .bc-signup-leftdiv{
         display: none;
     }
-    .bc-login-rightdiv{
+    .bc-signup-rightdiv{
         
     }
   }
