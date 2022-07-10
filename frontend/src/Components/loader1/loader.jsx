@@ -3,9 +3,9 @@ import './loader.css';
 const Loader=({className})=> {
   return (
     <div className={`loader-1-fulldiv ${className}`}>
-        <bar></bar>
-        <bar></bar>
-        <bar></bar>
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
   )
 }

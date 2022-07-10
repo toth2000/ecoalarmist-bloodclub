@@ -3,10 +3,10 @@ import React, { useState } from 'react'
 
 import './dropdownInput.css';
 
-const DropdownInput=({options,onChange,value})=> {
+const DropdownInput=({options,onChange,value,className})=> {
     const [focus,setFocus]=useState(false);
   return (
-    <div className="dropdowninput-fulldiv">
+    <div className={`dropdowninput-fulldiv ${className}`}>
       <select id="cars" name="cars" value={value} onFocus={()=>setFocus(true)} onBlur={()=>setFocus(false)} onChange={(e)=>onChange && onChange(e.target.value)}>
           {options && options.map(o=><option value={o} key={o}>{o}</option>)}
       </select>

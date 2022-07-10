@@ -4,12 +4,13 @@
     justify-content: space-between;
     padding: 5rem;
     box-sizing: border-box;
+    background-color: #ED3237;
 }
 .bc-login-leftdiv{
     flex: 1;
     text-transform: capitalize;
     font-size: 3rem;
-    color: #FC4F4F;
+    color: #ffff;
     font-weight: 600;
     font-family: 'Source Sans Pro', sans-serif;
     display: flex;
@@ -17,7 +18,7 @@
     align-items: center;
 }
 .bc-login-rightdiv{
-    height: 35rem;
+    height: 38rem;
     max-height: 100%;
     width: 25rem;
     max-width: 100%;
@@ -25,37 +26,24 @@
     box-sizing: border-box;
 }
 .login-card{
-    background: #ED3237;
+    background: #f2f2f2;
     height: 100%;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding:5rem 1rem;
+    padding:3rem 1rem;
     justify-content: space-between;
     box-sizing: border-box;
     position: relative;
-}
-.login-card::before{
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    border-radius: 5px;
-    background-color: #ff8a8a;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transform: translate(15px,15px);
 }
 .card-header{
     font-size: 2rem;
     margin: 0;
     padding: 0;
     letter-spacing: 2px;
-    color: #fff;
+    color: #ED3237;
     font-family: 'Roboto Condensed', sans-serif;
-    
 }
 .login-top{
     width: 100%;
@@ -71,14 +59,14 @@
     width: 100%;
     height: 100%;
     display: flex;
+    padding: 0 1rem;
+    box-sizing: border-box;
     flex-direction: column;
-    align-items: center;
     background-color: inherit;
-    justify-content: center;
 }
 .login-auth a{
     align-self: flex-end;
-    color: #fff;
+    color: #333;
     margin: 0;
     padding: 0;
     text-transform: capitalize;
@@ -92,44 +80,36 @@
 .login-initialstatus-div{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
     width: 100%;
+    height: 100%;
 }
 .login-phone-prefix{
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
 }
 .login-phone-prefix span{
     margin-right: 10px;
     letter-spacing: 1px;
     font-size: 1rem;
-    color: #fff;
+    color: #333;
 }
 .login-otpstatus-div{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.login-otpstatus-div a{
+    margin-top: 2px;
 }
 .input-phone{
     max-width: 90%;
 }
-.btn-auth{
-    font-size: 2rem;
-    margin-top: 1rem;
-    color: #cacaca;
-    box-shadow: 2px 2px 5px #b84141;
-}
-.btn-otp{
-    font-size: 1rem;
-    color: #444;
-    font-size: 1.2rem;
-    padding: 4px 5px;
-}
-.btn-auth:hover{
-    box-shadow: none;
-}
 .goto-signup,.link-signup{
-    color: #fff;
+    color: #333;
     font-size: .8rem;
     text-transform: capitalize;
 }
@@ -151,18 +131,18 @@
     height: 3rem;
 }
 .login-status-div span{
-    color: #fff;
+    color: #FD5D5D;
     font-family: 'Comfortaa', cursive;
     text-transform: capitalize;
     letter-spacing: 1px;
-    font-size: .8rem;
+    font-size: .9rem;
+    font-weight: 800;
 }
 .login-lebel{
     align-self: flex-start;
-    margin-left: 2.2rem;
     font-size: .8rem;
     letter-spacing: 1px;
-    color: #fff;
+    color: #333;
     margin-top: 1rem;
     margin-bottom: 2px;
 }
@@ -175,6 +155,6 @@
         display: none;
     }
     .bc-login-rightdiv{
-        
+        padding: 2rem 1rem;
     }
   }

@@ -5,10 +5,13 @@ import Button from '../../Components/button1/button';
 import Input from '../../Components/input1/input';
 import Optfield from '../../Components/optfield/otpfield';
 import {BsArrowLeft} from 'react-icons/bs';
-
-import './login.css';
 import Loader from '../../Components/loader1/loader';
 import Input2 from '../../Components/input2/input';
+import CustomButton from '../../Components/CustomButton/CustomButton';
+import { useDispatch } from 'react-redux';
+
+import './login.css';
+import { authenticate } from '../../redux/reducers/bcMemberReducer';
 
 const STATUS={
     INITIAL:"INITIAL",
@@ -22,6 +25,7 @@ const Login=()=> {
     const [statusMessage,setStatusMessage]=useState(null);
     const [phone,setPhone]=useState('');
     const navigate=useNavigate();
+    const dispatch=useDispatch();
 
     const handlePhoneSubmit=()=>{
         if(phone.length<10){
@@ -41,7 +45,15 @@ const Login=()=> {
         setTimeout(() => {
             //fake async call
             setStatus(STATUS.VERIFIED);
-            navigate('/bloodclub/dashboard')
+            dispatch(authenticate({
+                name:'Dummy name',
+                email:'Dummy name',group:'A+',
+                id:'1234',accesstoken:'accesstoken',
+                refreshtoken:'refreshtoken',
+                phone,
+                isVerified:true
+            }))
+            navigate('/bloodclub/dashboard/history')
             setStatusMessage(null);
             setLoading(false);
         }, 2000);
@@ -60,14 +72,14 @@ const Login=()=> {
                         <span className='login-lebel'>Phone no.</span>
                         <div className="login-phone-prefix">
                             <span>+91</span>
-                            <Input2 className={'input-phone'} value={phone} onChange={v=>setPhone(v)} placeholder={'Enter phone Number'}/>
-                        </div>
-                        <Button className={'btn-auth btn-otp'} onClick={handlePhoneSubmit}>{'Get otp'}</Button>
+                            <Input2 value={phone} onChange={v=>setPhone(v)} />
+                        </div><br/>
+                        <CustomButton onClick={handlePhoneSubmit} text={'Get otp'} />
                     </div>}
                     {status===STATUS.OTPSENT && <div className="login-otpstatus-div">
                         <Optfield onSubmit={handleLogin}/>
-                        <a >resend OTP?</a>
-                        <Button className={'btn-auth btn-back'} onClick={()=>setStatus(STATUS.INITIAL)}><BsArrowLeft/></Button>
+                        <a >resend OTP?</a><br/>
+                        <CustomButton onClick={()=>setStatus(STATUS.INITIAL)} text={<BsArrowLeft/>} />
                     </div>}
                     </div>
                     <div className='login-status-div'>
