@@ -11,11 +11,11 @@ const BloodClubNavbar = () => {
   }
 
   return (
-    <div className='navbar__full-div'>
+    <div className='bc_navbar__full-div'>
       <div style = {isDrawerOpen ? {maxHeight : '500px'} : {}} className='navbar-navlinks__drawer'>
           <NavLink className='navbar-mobile__navlinks' style = {({isActive}) => isActive ? {color : '#ED3237'} : {}} to = '/bloodclub/dashboard'>Dashboard</NavLink>
           <NavLink className='navbar-mobile__navlinks' style = {({isActive}) => isActive ? {color : '#ED3237'} : {}} to = '/bloodclub/login'>Login</NavLink>
-          <NavLink className='navbar-mobile__navlinks' style = {({isActive}) => isActive ? {color : '#ED3237'} : {}} to = '/bloodclub/login'>Sign-up</NavLink>
+          <NavLink className='navbar-mobile__navlinks' style = {({isActive}) => isActive ? {color : '#ED3237'} : {}} to = '/bloodclub/register'>Sign-up</NavLink>
       </div>
 
       <div onClick = {hamburgerButtonClickHandler} className='navbar-hamburger__button-div'>

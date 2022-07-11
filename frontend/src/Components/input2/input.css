@@ -2,10 +2,11 @@
     background: transparent;
     border: none;
     padding:2px 5px;
-    color: #fff;
+    color: #333;
     position: relative;
-    width: calc(100% - 4rem);
-    border-bottom: 1px solid #fff;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #333;
 }
 .input2{
     background: transparent;
@@ -30,7 +31,7 @@
     left: 0;
     transform-origin: center;
     transition: transform 200ms ease-in-out;
-    background-color: #9f202064;
+    background-color: #e0e0e0;
     border: none;
     border-bottom: 2px solid #cacaca;
 }
