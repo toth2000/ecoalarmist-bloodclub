@@ -8,10 +8,19 @@ import {BsArrowLeft} from 'react-icons/bs';
 import Loader from '../../Components/loader1/loader';
 import Input2 from '../../Components/input2/input';
 import DropdownInput from '../../Components/dropdownInput/dropdownInput';
+import CustomButton from '../../Components/CustomButton/CustomButton';
 import data from './info.json';
+import {useDispatch} from 'react-redux';
+import { authenticate } from '../../redux/reducers/bcMemberReducer';
 
 import './signup.css';
-import { useEffect } from 'react';
+
+const BLOODGROUP=['A+','A-','B+','B-','AB+','AB-','O+','O-'];
+const GENDER={
+  MALE:"Male",
+  FEMALE:"Female",
+  OTHERS:"Others"
+}
 
 const STATUS={
     INITIAL:"INITIAL",
@@ -27,6 +36,17 @@ const Signup = () => {
   const [slide, setSlide] = useState(1);
   const [state, setState] = useState('Andhra Pradesh');
   const [dist, setDist] = useState('Anantapur');
+  const [name,setName]=useState('');
+  const [email,setEmail]=useState('');
+  const [area,setArea]=useState('');
+  const [pincode,setPincode]=useState('');
+  const [age,setAge]=useState();
+  const [termsStatus,setTermsStatus]=useState(false);
+  const [gender,setGender]=useState(GENDER.MALE);
+  const [bloodGroup,setBloodGroup]=useState(BLOODGROUP[0]);
+
+  const dispatch=useDispatch()
+  
   const navigate = useNavigate();
   const handlePhoneSubmit = () => {
     if (phone.length < 10) {
@@ -51,13 +71,37 @@ const Signup = () => {
     }, 2000);
   }
   const handleSignup = () => {
+    if(!area.trim().length>0){
+      setStatusMessage("Enter the area");
+      return;
+    }
+    if(pincode.trim().length!==6){
+      setStatusMessage("Enter a valid pincode");
+      return;
+    }
+    if(!termsStatus){
+      setStatusMessage("Please accept the terms and conditions");
+      return;
+    }
     setLoading(true);
     setTimeout(() => {
       //fake async call
-      navigate('/bloodclub/dashboard')
+      const memberStatus=false;
+      dispatch(authenticate({
+        name,email,group:bloodGroup,id:'1234',accesstoken:'accesstoken',refreshtoken:'refreshtoken',isVerified:memberStatus,
+        phone
+      }))
+      navigate('/bloodclub/dashboard');
+
       setStatusMessage(null);
       setLoading(false);
     }, 2000);
+  }
+  const handleSlider=()=>{
+    if(name.trim().length>=4 && email.trim().length>=5 && age)setSlide(2);
+    else{
+      setStatusMessage("Missing Fields either name,email,age");
+    }
   }
   return (
     <div className='bc-signup-fulldiv'>
@@ -73,42 +117,61 @@ const Signup = () => {
                           <span className='signup-lebel'>Phone no.</span>
                           <div className="signup-phone-prefix">
                             <span>+91</span>
-                            <Input2 value={phone} onChange={v=>setPhone(v)} placeholder={'Enter phone Number'}/>
-                          </div>
-                          <Button className={'btn-auth btn-otp'} onClick={handlePhoneSubmit}>{'Get otp'}</Button>
+                            <Input2 fullClassName={'signup-phone-input'} value={phone} onChange={v=>setPhone(v)}/>
+                          </div><br/>
+                          <CustomButton  onClick={handlePhoneSubmit} text={'GET OTP'}/>
                         </div>}
                         {status===STATUS.OTPSENT && <div className="signup-otpstatus-div">
                           <Optfield onSubmit={handleOtpValidate}/>
-                          <a >resend OTP?</a>
-                          <Button className={'btn-auth btn-back'} onClick={()=>setStatus(STATUS.INITIAL)}><BsArrowLeft/></Button>
+                          <a >resend OTP?</a><br/>
+                          <CustomButton  onClick={()=>setStatus(STATUS.INITIAL)} text={<BsArrowLeft/>}/>
                         </div>}
                         {status===STATUS.VERIFIED&&<div className='signup-slider'>
                           <div className="signup-slider-left" style={{zIndex:slide===1?1:0}}>
                             <span className='signup-lebel'>Name</span>
-                            <Input2 placeholder={'Enter Your Name'}/>
+                            <Input2 onChange={(n)=>setName(n)} value={name}/>
                             <span className='signup-lebel'>Email</span>
-                            <Input2 placeholder={'Enter Your Email'}/>
+                            <Input2 onChange={(n)=>setEmail(n)} value={email}/>
                             <span className='signup-lebel'>Phone Number</span>
                             <div className="signup-phone-prefix">
                               <span>+91</span>
-                              <Input2 value={phone} disabled />
+                              <Input2 fullClassName={'signup-phone-input'} value={phone} disabled />
+                            </div>
+                            <div className='signup-age-sex'>
+                              <div className="signup-age-sex__age">
+                                <span className='signup-lebel'>Age</span>
+                                <Input2 onChange={(n)=>setAge(n)} value={age} />
+                              </div>
+                              <div className="signup-age-sex__sex">
+                                <span className='signup-lebel'>Sex</span>
+                                <DropdownInput  options={[GENDER.MALE,GENDER.FEMALE,GENDER.OTHERS]} onChange={(n)=>setGender(n)} value={gender}  fullClassName={'signup-input_small'}/>
+                              </div>
+                              <div className="signup-age-sex__group">
+                                <span className='signup-lebel'>Group</span>
+                                <DropdownInput  options={BLOODGROUP} onChange={(n)=>setBloodGroup(n)} value={bloodGroup} fullClassName={'signup-input_small'}/>
+                              </div>
                             </div>
                             <div className="slider-2-buttons">
-                              <Button onClick={()=>setSlide(2)}>{'>'}</Button>
+                              <Button onClick={handleSlider}>Next</Button>
                             </div>
                           </div>
                           <div className="signup-slider-right" style={{zIndex:slide===2?1:0}}>
                             <span className='signup-lebel'>Vill/City Name</span>
-                            <Input2 />
+                            <Input2 onChange={(n)=>setArea(n)} value={area} />
                             <span className='signup-lebel'>Pincode</span>
-                            <Input2 />
+                            <Input2  onChange={(n)=>setPincode(n)} value={pincode}/>
                             <span className='signup-lebel'>State</span>
                             <DropdownInput options={data.states.map(s=>s.state)} onChange={(s)=>setState(s)} value={state}/>
                             <span className='signup-lebel'>District</span>
                             <DropdownInput options={data.states.find(s=>s.state===state).districts} onChange={(s)=>setDist(s)} value={dist}/>
+                            <div className='signup-terms'>
+                              <input type='checkbox' onChange={(e)=>setTermsStatus(e.target.checked)} value={termsStatus} />
+                              <span>I aggree to the </span>
+                              <span>terms and conditions</span>
+                            </div>
                             <div className="slider-2-buttons">
-                              <Button  onClick={()=>setSlide(1)}>{'<'}</Button>
-                              <Button  className={'signup-button'} onClick={handleSignup}>Sign up</Button>
+                              <Button onClick={()=>setSlide(1)}>{'<'}</Button>
+                              <Button className={'signup-button'} onClick={handleSignup}>Sign up</Button>
                             </div>
                           </div>
                         </div> }

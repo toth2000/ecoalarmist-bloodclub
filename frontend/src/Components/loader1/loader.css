@@ -6,16 +6,16 @@
     align-items: center;
 }
 
-.loader-1-fulldiv bar{
+.loader-1-fulldiv div{
     position: relative;
     height: 2rem;
     width: 5px;
-    background-color: #fff;
+    background-color: #555;
     margin: 0 3px;
     border-radius: 10px;
     animation: load 1s ease-in-out none infinite ;
 }
-.loader-1-fulldiv bar:nth-child(even){
+.loader-1-fulldiv div:nth-child(even){
     height: 2rem;
     animation-name: loadrev;
 }

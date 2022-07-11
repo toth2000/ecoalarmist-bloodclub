@@ -1,0 +1,105 @@
+.profile-fulldiv{
+    padding: 2rem 10%;
+    box-sizing: border-box;
+}
+.profile-userinfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.profile-userinfo-left{
+    display: flex;
+    align-items: center;
+}
+.userinfo-circle{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100%;
+    background-color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: #eeeeee;
+}
+.user_verified{
+    display: flex;
+    align-items: center;
+}
+.user_verified span{
+    margin-left: 5px;
+    font-size: .7rem;
+    line-height: 1.5rem;
+}
+.userinfo__user{
+    margin-left: 10px;
+}
+.userinfo__user h2{
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+}
+.profile-bloodgroup{
+    font-size: 1rem;
+    color: #555;
+}
+.member-status{
+    font-size: 1rem;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.status-eligible{
+    color: #3E7C17;
+}
+.status-uneligible{
+    color: #FD5D5D;
+
+}
+.profile-credentials{
+    margin-top: 4rem;
+}
+.phone-number-edit{
+    margin-left: 10px;
+}
+.email-credentials{
+    margin-top: 1rem;
+}
+.email-edit{
+    margin-left: 10px;
+    
+}
+.profile-location{
+    margin-top: 4rem;
+}
+.profile-location_heading{
+    font-size: 1.2rem;
+}
+.profile-location_area{
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.area-edit{
+    margin-left: 10px; 
+}
+.profile-location_pincode{
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.pincode-edit{
+    margin-left: 10px; 
+}
+.profile-location_state{
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.profile-location_state .state-edit{
+    margin-left: 10px; 
+}
+.profile-location_district{
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.profile-location_district .district-edit{
+    margin-left: 10px; 
+}

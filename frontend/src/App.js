@@ -13,6 +13,9 @@ import Navbar from './Components/Navbar/Navbar';
 import BloodClubNavbar from './Components/BloodClub Navbar/Navbar';
 import BC_Dashboard from './pages/bc-dashboard/dashboard';
 import PatientFormPage from './pages/PatientFormPage/PatientFormPage'
+import AuthenticatedRoute from './pages/Authenticated/authenticatedRoute';
+import DashboardNavbar from './Components/dashboard Navbar/Navbar';
+import BC_PROFILE from './pages/bc-profile/profile';
 
 function App() {
   return (
@@ -23,12 +26,17 @@ function App() {
             <Route path = '/' element = {<IntroPage/>}/>
             <Route path = '/patient/form' element = {<PatientFormPage/>} />
           </Route>
-          <Route path = "bloodclub" element={<><BloodClubNavbar/><Outlet/> </>} >
-            <Route path='dashboard' element={<BC_Dashboard/>}/>
-            <Route path='register' element={<BC_SIGNUP/>} />
-            <Route path='login' element={<BC_LOGIN/>} />
+          <Route path = "bloodclub" element={<Outlet/>} >
+            <Route element={<><DashboardNavbar/><AuthenticatedRoute/></>}>
+              <Route path='dashboard' element={<BC_Dashboard/>}/>
+              <Route path='profile' element={<BC_PROFILE/>}/>
+            </Route>
+            <Route  element={<><BloodClubNavbar/><Outlet/> </>} >
+              <Route path='register' element={<BC_SIGNUP/>} />
+              <Route path='login' element={<BC_LOGIN/>} />
+            </Route>
           </Route>
-          <Route path = "*" element = {<Navigate to ='/' />}/>
+          {/* <Route path = "*" element = {<Navigate to ='/' />}/> */}
         </Routes>
       </Router>
     </div>
