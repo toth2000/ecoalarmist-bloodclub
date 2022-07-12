@@ -1,0 +1,33 @@
+.card-fulldiv{
+    height: 4rem;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: #eeeeeeee;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+.card-fulldiv:hover{
+    box-shadow: inset 0 0 5px #cacaca;
+}
+.card-date{
+    color: #444;
+}
+.card-download-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+}
+.card-download_icon{
+    margin-right: 10px;
+    cursor: pointer;
+}
+.card-download_icon:hover{
+    color: #ED3237;
+}

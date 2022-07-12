@@ -3,8 +3,10 @@
     display: flex;
     justify-content: space-between;
     padding: 5rem;
-    box-sizing: border-box;
     background-color: #ED3237;
+    min-height: 100vh;
+    align-items: center;
+    box-sizing: border-box;
 }
 .bc-signup-leftdiv{
     flex: 1;

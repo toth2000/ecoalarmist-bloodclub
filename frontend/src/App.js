@@ -36,7 +36,7 @@ function App() {
               <Route path='login' element={<BC_LOGIN/>} />
             </Route>
           </Route>
-          {/* <Route path = "*" element = {<Navigate to ='/' />}/> */}
+          <Route path = "*" element = {<Navigate to ='/' />}/>
         </Routes>
       </Router>
     </div>
