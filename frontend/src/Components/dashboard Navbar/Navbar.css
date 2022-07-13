@@ -93,7 +93,12 @@
     font-weight: 600;
     margin: 30px 0;
 }
-
+.logout-button_mobile{
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    text-transform: capitalize;
+}
 @media(max-width : 450px){
     .navbar-hamburger__button-div{
         display: flex;

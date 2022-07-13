@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Outlet, useNavigate } from 'react-router-dom';
-import { authenticate, MEMBERSTATUS } from '../../redux/reducers/bcMemberReducer';
+import { authenticate, logout, MEMBERSTATUS } from '../../redux/reducers/bcMemberReducer';
 
 const AuthenticatedRoute=()=> {
     const status = useSelector((state) => state.clubMember.status);
@@ -12,6 +12,12 @@ const AuthenticatedRoute=()=> {
         const id=localStorage.getItem('id');
         const accesstoken=localStorage.getItem('accesstoken');
         const refreshtoken=localStorage.getItem('refreshtoken');
+        console.log(accesstoken);
+        if(!id || !accesstoken ||  !refreshtoken){
+            dispatch(logout());
+            navigate('/bloodclub/login');
+            return;
+        }
         if(status===MEMBERSTATUS.AUTHORIZED)return;
         setTimeout(() => {
             dispatch(authenticate({
@@ -26,7 +32,7 @@ const AuthenticatedRoute=()=> {
     },[status])
     if(status===MEMBERSTATUS.LOADING)return(<div>Loading</div>)
     if(status===MEMBERSTATUS.AUTHORIZED)return(<Outlet/>);
-    return (<div>{window.location='/bloodclub/login'}</div>)
+    return (<div>dawawdawdawd</div>)
 }
 
 export default AuthenticatedRoute

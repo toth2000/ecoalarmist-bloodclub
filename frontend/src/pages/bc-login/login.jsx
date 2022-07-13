@@ -53,7 +53,7 @@ const Login=()=> {
                 phone,
                 isVerified:true
             }))
-            navigate('/bloodclub/dashboard/history')
+            navigate('/bloodclub/dashboard')
             setStatusMessage(null);
             setLoading(false);
         }, 2000);
@@ -74,7 +74,7 @@ const Login=()=> {
                             <span>+91</span>
                             <Input2 value={phone} onChange={v=>setPhone(v)} />
                         </div><br/>
-                        <CustomButton onClick={handlePhoneSubmit} text={'Get otp'} />
+                        <CustomButton onClick={handlePhoneSubmit} text={'GET OTP'} />
                     </div>}
                     {status===STATUS.OTPSENT && <div className="login-otpstatus-div">
                         <Optfield onSubmit={handleLogin}/>
