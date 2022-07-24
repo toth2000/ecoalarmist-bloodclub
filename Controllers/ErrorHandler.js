@@ -1,3 +1,5 @@
+// this is a custom error handler class
+
 const CustomError=class {
     constructor(status,message){
         this.message=message;

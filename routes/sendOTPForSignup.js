@@ -1,6 +1,6 @@
 const Router=require("express").Router();
 const { CustomError } = require("../Controllers/ErrorHandler");
-const isUserAlreadyPresent = require("../Controllers/isUserAlreadyPresent");
+const { isUserAlreadyPresent } = require("../Controllers/isUserAlreadyPresent");
 const { sendOTP } = require('../Controllers/otpControllers')
 
 // this route is for asking otp for signing up a user

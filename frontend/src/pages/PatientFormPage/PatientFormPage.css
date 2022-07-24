@@ -18,12 +18,34 @@
     justify-content: center;
     align-items: center;
     position: relative;
+
+    
+}
+
+.patient-form-page__tagline__div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.patient-form-page__logo-div__blood-icon{
+    font-size: 5rem;
+    color: white;
+}
+
+@media(max-width : 650px){
+    .patient-form-page__tagline__div{
+        display: block;
+        text-align: center;
+    }
 }
 
 .patient-form-page__logo-div__text{
     font-family: 'Barlow Condensed';
     color: white;
     font-size: 5rem;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .patient-form-page__bottom-arrow__div{
@@ -40,7 +62,39 @@
 }
 
 .patient-form-page__bottom-arrow1{
-    transform: translateY(40px);
+    transform: translateY(60px);
+    animation: arrow1 1s linear infinite;
+}
+
+.patient-form-page__bottom-arrow2{
+    animation: arrow2 1s linear infinite;
+}
+
+@keyframes arrow1 {
+    0%{
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    50%{
+        opacity: 1;
+        transform: translateY(70px);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(60px);
+    }
+}
+
+@keyframes arrow2 {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(10px);
+    }
+    100%{
+        transform: translateY(0);
+    }
 }
 
 .patient-form-page__form-div{
