@@ -20,10 +20,14 @@ const connectMongoBD = () => {
 connectMongoBD();
 
 const sendOTPForSignup = require('./routes/sendOTPForSignup');
+const sendOTPForLogin = require('./routes/sendOTPForLogin');
 const verifyOTP = require('./routes/verifyOTP')
+const signup = require('./routes/signUp');
 
 app.use("/sendotpforsignup", sendOTPForSignup);
 app.use("/verifyotp", verifyOTP);
+app.use('/sendotpforlogin', sendOTPForLogin)
+app.use('/sign', signup)
 
 app.use(errorHandler);
 

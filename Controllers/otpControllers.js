@@ -3,7 +3,7 @@ const otpGenerator = require('otp-generator');
 const OtpModel = require('../models/otpModel');
 const { CustomError } = require("./ErrorHandler");
 
-const sendOTP_forSignup = async(req, res, next) => {
+const sendOTP = async(req, res, next) => {
     try{
 
         const number = req.body.number;
@@ -53,4 +53,4 @@ const verifyOTP = async(req, res, next) => {
     }
 }
 
-module.exports = {sendOTP_forSignup, verifyOTP}
+module.exports = {sendOTP, verifyOTP}

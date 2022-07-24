@@ -1,4 +1,6 @@
-// name, email, phn no, age, gender, blood group, village_city, pincode, state, district, status
+// this is route for signing up a user 
+// to request in this route uses needs to be verified through OTP
+// necessary fields as body : { name, email, phn no, age, gender, blood group, village_city, pincode, state, district, status } 
 
 const Router = require("express").Router();
 const { CustomError } = require("../Controllers/ErrorHandler");
