@@ -12,20 +12,20 @@ const BC_PROFILE=()=> {
             <div className="userinfo__user">
               <div className="user_verified">
                 <h2>User Name</h2>
-                <span>VERIFIED</span>
               </div>
               <span className='profile-bloodgroup'>A+</span>
             </div>
           </div>
           <div className="profile-userinfo-right">
             {<span className='member-status status-eligible'>Eligible</span>}
+            {/* {<span className='member-status status-unverified'>Un-Verified</span>} */}
             {/* {<span className='member-status status-uneligible'>Un-eligible</span>} */}
           </div>
         </div>
         <div className="profile-credentials">
           <label htmlFor="phone">Phone Number</label>
           <div className='phone-number-edit'>
-            <span>{37232738273}</span>
+            <span>+91 {37232738273}</span>
           </div>
         </div>
         <div className="email-credentials">
