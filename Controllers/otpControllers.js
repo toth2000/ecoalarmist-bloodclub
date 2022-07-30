@@ -3,7 +3,12 @@ const otpGenerator = require('otp-generator');
 const OtpModel = require('../models/otpModel');
 const { CustomError } = require("./ErrorHandler");
 
-const sendOTP_forSignup = async(req, res, next) => {
+
+// for sending otp the dependencies are : { number }
+// make sure to add the otp sending api code in the send otp section everything other than that has been taken care of
+// generates a new OtpModel object and saves it in the database to verify it in future
+
+const sendOTP = async(req, res, next) => {
     try{
 
         const number = req.body.number;
@@ -17,7 +22,11 @@ const sendOTP_forSignup = async(req, res, next) => {
             specialChars : false
         })
     
-        // send otp from here
+        // send otp section
+
+                // ----- > write the code here
+
+        // send otp section
 
         if(!OTP || OTP.length !== 6) return next(new CustomError(500, 'Server Error'))
         
@@ -29,7 +38,6 @@ const sendOTP_forSignup = async(req, res, next) => {
         await newOtp.save();
         res.generatedOTP = OTP;
 
-        console.log({OTP});
         next();
 
     }catch(error){
@@ -39,6 +47,8 @@ const sendOTP_forSignup = async(req, res, next) => {
 
 }
 
+// dependencies : {number, otp}
+// checks whether the given { number, otp } are present in the database
 const verifyOTP = async(req, res, next) => {
     try{
         const number = req.body.number;
@@ -53,4 +63,4 @@ const verifyOTP = async(req, res, next) => {
     }
 }
 
-module.exports = {sendOTP_forSignup, verifyOTP}
+module.exports = {sendOTP, verifyOTP}
