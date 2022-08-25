@@ -29,6 +29,9 @@ import BC_SIGNUP from './pages/bc-signup/signup';
 import BC_Dashboard from './pages/bc-dashboard/dashboard';
 import BC_PROFILE from './pages/bc-profile/profile';
 
+//terms and condition
+import TermsAndConditions from './pages/Terms and Condition/termsAndCondition';
+
 function App() {
   return (
     <div className="App">
@@ -53,6 +56,7 @@ function App() {
               <Route path='login' element={<BC_LOGIN/>} />
             </Route>
           </Route>
+          <Route path='terms-and-condition' element={<TermsAndConditions/>}/>
           <Route path = "*" element = {<Navigate to ='/' />}/>
         </Routes>
       </Router>

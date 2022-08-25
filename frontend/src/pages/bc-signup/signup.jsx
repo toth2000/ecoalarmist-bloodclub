@@ -20,7 +20,7 @@ import './signup.css';
 
 
 //blood group selector
-const BLOODGROUP=['A+','A-','B+','B-','AB+','AB-','O+','O-'];
+const BLOODGROUP=['A+','A-','B+','B-','AB+','AB-','O+','O-','I don\'t know'];
 //gender selector
 const GENDER={
   MALE:"Male",
@@ -35,7 +35,7 @@ const STATUS={
     VERIFIED:"VERIFIED",
 }
 const Signup = () => {
-  const [status, setStatus] = useState(STATUS.INITIAL);
+  const [status, setStatus] = useState(STATUS.VERIFIED);
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null);
   const [phone, setPhone] = useState('');
@@ -152,8 +152,11 @@ const Signup = () => {
                             </div>
                             <div className='signup-age-sex'>
                               <div className="signup-age-sex__age">
-                                <span className='signup-lebel'>Age</span>
-                                <Input2 onChange={(n)=>setAge(n)} value={age} />
+                                <span className='signup-lebel'>DOB</span>
+                                <div>
+                                  {/* <input className='signup-calender' type="date" onChange={(n)=>setAge(n) } value={age}></input> */}
+                                  <Input2 className='signup-calender' type="date" onChange={(n)=>setAge(n) } value={age}></Input2>
+                                </div>
                               </div>
                               <div className="signup-age-sex__sex">
                                 <span className='signup-lebel'>Sex</span>
@@ -169,7 +172,7 @@ const Signup = () => {
                             </div>
                           </div>
                           <div className="signup-slider-right" style={{zIndex:slide===2?1:0}}>
-                            <span className='signup-lebel'>Vill/City Name</span>
+                            <span className='signup-lebel'>Address (vill/city,road no.,house no.)</span>
                             <Input2 onChange={(n)=>setArea(n)} value={area} />
                             <span className='signup-lebel'>Pincode</span>
                             <Input2  onChange={(n)=>setPincode(n)} value={pincode}/>
@@ -180,7 +183,7 @@ const Signup = () => {
                             <div className='signup-terms'>
                               <input type='checkbox' onChange={(e)=>setTermsStatus(e.target.checked)} value={termsStatus} />
                               <span>I aggree to the </span>
-                              <span>terms and conditions</span>
+                              <span onClick={()=>navigate('/terms-and-condition')}>terms and conditions</span>
                             </div>
                             <div className="slider-2-buttons">
                               <Button onClick={()=>setSlide(1)}>{'<'}</Button>

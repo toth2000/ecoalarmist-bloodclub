@@ -174,6 +174,15 @@
     justify-content: space-between;
     margin-top: 20px;
 }
+.signup-calender{
+    background: transparent;
+    border: none;
+    font-size: .8rem;
+}
+.signup-calender:focus{
+    outline: none;
+    cursor: pointer;
+}
 .signup-age-sex__age,.signup-age-sex__sex,.signup-age-sex__group{
     flex: 1;
 
