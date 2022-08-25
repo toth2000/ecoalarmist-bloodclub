@@ -1,3 +1,8 @@
+//this fires up before accessing a protected route
+//does not have any html content
+//redirects to the desired route if authenticated other wise redirects to login route
+
+
 import React from 'react'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,6 +24,12 @@ const AuthenticatedRoute=()=> {
             return;
         }
         if(status===MEMBERSTATUS.AUTHORIZED)return;
+
+        //fake auth call for authentication
+        //requires id,accesstoken,refreshtoken
+        //if verified
+        //  sets name,email,group,id,accesstoken,refreshtoken,phone,isVerified using redux
+        //else redirects to login page
         setTimeout(() => {
             dispatch(authenticate({
                 name:'Dummy name',
@@ -32,7 +43,7 @@ const AuthenticatedRoute=()=> {
     },[status])
     if(status===MEMBERSTATUS.LOADING)return(<div>Loading</div>)
     if(status===MEMBERSTATUS.AUTHORIZED)return(<Outlet/>);
-    return (<div>dawawdawdawd</div>)
+    return (<div></div>)
 }
 
 export default AuthenticatedRoute
