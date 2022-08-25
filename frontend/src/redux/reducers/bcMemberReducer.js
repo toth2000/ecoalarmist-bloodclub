@@ -1,5 +1,8 @@
+//member status reducer
+
 import { createSlice } from '@reduxjs/toolkit'
 
+//status of the user intial would be UNAUTHORIZED
 export const MEMBERSTATUS = {
   UNAUTHORIZED: "UNAUTHORIZED",
   AUTHORIZED: "AUTHORIZED",
@@ -24,6 +27,7 @@ export const counterSlice = createSlice({
             refreshtoken:action.payload.refreshtoken,
             isVerified:action.payload.isVerified
         }
+        //adding user data to the localstorage
         localStorage.setItem('id',obj.id);
         localStorage.setItem('accesstoken',obj.accesstoken);
         localStorage.setItem('refreshtoken',obj.refreshtoken);
@@ -33,13 +37,18 @@ export const counterSlice = createSlice({
     },
     logout: (state) => {
       state.status=MEMBERSTATUS.UNAUTHORIZED;
+
+      //removing user data from the local storage
       localStorage.removeItem('id');
       localStorage.removeItem('accesstoken');
       localStorage.removeItem('refreshtoken');
+
+
       state.data=null;
     }
   },
 })
+//exporting the actions
 export const { authenticate, logout } = counterSlice.actions
 
 export default counterSlice.reducer

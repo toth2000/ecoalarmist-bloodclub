@@ -1,27 +1,33 @@
+//signup route for new users
+//uses Loader,Input2,CustomButton,DropdownInput,Otpfield
+
 import React from 'react'
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../Components/button1/button';
-import Input from '../../Components/input1/input';
-import Optfield from '../../Components/optfield/otpfield';
+import Otpfield from '../../Components/optfield/otpfield';
 import {BsArrowLeft} from 'react-icons/bs';
 import Loader from '../../Components/loader1/loader';
 import Input2 from '../../Components/input2/input';
 import DropdownInput from '../../Components/dropdownInput/dropdownInput';
 import CustomButton from '../../Components/CustomButton/CustomButton';
-import data from './info.json';
 import {useDispatch} from 'react-redux';
 import { authenticate } from '../../redux/reducers/bcMemberReducer';
-
+//information about location
+import data from './info.json';
+//custom css
 import './signup.css';
 
+
+//blood group selector
 const BLOODGROUP=['A+','A-','B+','B-','AB+','AB-','O+','O-'];
+//gender selector
 const GENDER={
   MALE:"Male",
   FEMALE:"Female",
   OTHERS:"Others"
 }
-
+//status selector of the user
 const STATUS={
     INITIAL:"INITIAL",
     OTPSENT:"OTPSENT",
@@ -48,28 +54,31 @@ const Signup = () => {
   const dispatch=useDispatch()
   
   const navigate = useNavigate();
+  //fires up when the user presses the get otp button
   const handlePhoneSubmit = () => {
     if (phone.length < 10) {
       setStatusMessage(`Invalid Phone Number`);
       return;
     }
     setLoading(true);
-    //fake async call
+    //fake async call for sending otp to the desired phone number
     setTimeout(() => {
       setLoading(false);
       setStatusMessage(null);
       setStatus(STATUS.OTPSENT);
     }, 2000);
   }
+  //fires up when the user fills the otp
   const handleOtpValidate = (str) => {
     setLoading(true);
     setTimeout(() => {
-      //fake async call
+      //fake async call for evaluating the otp
       setStatus(STATUS.VERIFIED);
       setStatusMessage(null);
       setLoading(false);
     }, 2000);
   }
+  //fires up when the user presses sign up button
   const handleSignup = () => {
     if(!area.trim().length>0){
       setStatusMessage("Enter the area");
@@ -85,7 +94,8 @@ const Signup = () => {
     }
     setLoading(true);
     setTimeout(() => {
-      //fake async call
+      //fake async call for registering the user
+      //sends name,email,group,age,sex,phone,pincode,city,district,state
       const memberStatus=false;
       dispatch(authenticate({
         name,email,group:bloodGroup,id:'1234',accesstoken:'accesstoken',refreshtoken:'refreshtoken',isVerified:memberStatus,
@@ -113,6 +123,7 @@ const Signup = () => {
                 <h1 className='card-header'>Sign Up</h1>
                 <div className="signup-top">
                     <div className="signup-auth">
+                      {/* initial screen */}
                         {status===STATUS.INITIAL&&<div className="signup-initialstatus-div">
                           <span className='signup-lebel'>Phone no.</span>
                           <div className="signup-phone-prefix">
@@ -121,11 +132,13 @@ const Signup = () => {
                           </div><br/>
                           <CustomButton  onClick={handlePhoneSubmit} text={'GET OTP'}/>
                         </div>}
+                        {/* fires up after submiting the phone number  */}
                         {status===STATUS.OTPSENT && <div className="signup-otpstatus-div">
-                          <Optfield onSubmit={handleOtpValidate}/>
+                          <Otpfield onSubmit={handleOtpValidate}/>
                           <a >resend OTP?</a><br/>
                           <CustomButton  onClick={()=>setStatus(STATUS.INITIAL)} text={<BsArrowLeft/>}/>
                         </div>}
+                        {/* fires up after the otp is verified */}
                         {status===STATUS.VERIFIED&&<div className='signup-slider'>
                           <div className="signup-slider-left" style={{zIndex:slide===1?1:0}}>
                             <span className='signup-lebel'>Name</span>
