@@ -35,7 +35,7 @@ const STATUS={
     VERIFIED:"VERIFIED",
 }
 const Signup = () => {
-  const [status, setStatus] = useState(STATUS.VERIFIED);
+  const [status, setStatus] = useState(STATUS.INITIAL);
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null);
   const [phone, setPhone] = useState('');
